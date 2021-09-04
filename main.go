@@ -8,7 +8,7 @@ import (
 func main() {
 	number := input()
 	fmt.Printf("factorialIterative = %d, factorialRecursive = %d", getIterativeFactorial(number),
-		getRecursiveFactorial(number, 1))
+		getRecursiveFactorial(number))
 }
 
 func input() int {
@@ -30,9 +30,9 @@ func getIterativeFactorial(step int) int {
 	return result
 }
 
-func getRecursiveFactorial(step int, result int) int {
-	if(step == 1) {
-		return result
+func getRecursiveFactorial(step int) int {
+	if step == 1 {
+		return step
 	}
-	return getRecursiveFactorial(step-1,result*step)
+	return step * getRecursiveFactorial(step-1)
 }
